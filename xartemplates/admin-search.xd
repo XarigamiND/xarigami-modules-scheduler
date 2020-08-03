@@ -1,0 +1,29 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+            <xar:template type="module" module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1><xar:mlstring>Scheduler API Functions</xar:mlstring></h1>
+        <div class="xar-mod-content">
+
+            <xar:if condition="!empty($found) and count($found) gt 0">
+                <ul>
+                <xar:foreach in="$found" value="$api">
+                    <xar:set name="args">array('addjob' => "$api[module];$api[type];$api[func]")</xar:set>
+                    <li>[<a href="#xarModURL('scheduler','admin','modifyconfig',$args)#"><xar:mlstring>add job</xar:mlstring></a>] #$api['module']# - #$api['type']# - #$api['func']#</li>
+                </xar:foreach>
+                </ul>
+            <xar:else/>
+                <p>
+                <xar:mlstring>No scheduler API functions found...</xar:mlstring>
+                </p>
+            </xar:if>
+            <div class="xar-accent xar-norm-outline xar-padding-thick">
+                 <xar:mlstring>Note: there may be other API functions available for use by the scheduler - check your module documentation or try it out</xar:mlstring>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="xar-form-input-wrapper">
+    <label for="showstatus#$blockid#" class="help xar-form-label" title="#xarML('Show the status of the trigger to administrators?')#"><xar:mlstring>Show status to admins</xar:mlstring></label>
+    <xar:if condition="empty($showstatus)">
+        <input type="checkbox" name="showstatus" id="showstatus#$blockid#" value="1" />
+    <xar:else />
+        <input type="checkbox" name="showstatus" id="showstatus#$blockid#" value="1" checked="checked" />
+    </xar:if>
+</div>
+
